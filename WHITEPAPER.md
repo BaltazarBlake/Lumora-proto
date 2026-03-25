@@ -5,14 +5,14 @@
 
 ## 1. Project Overview
 
-Lumora is an **AI-native concentrated liquidity DEX protocol** that integrates intelligent liquidity management at the protocol level, powered by **OKX Onchain OS**.
+Lumora is an **AI-native concentrated liquidity DEX protocol** that integrates intelligent liquidity management at the protocol level, powered by **X Layer Onchain OS**.
 
 In simple terms, it works like this:
 
 - Lumora is a DEX with concentrated liquidity pools (similar to Uniswap V3 architecture)
 - Users provide liquidity and can bring their own AI agents
 - Agents install the `lumora` Skill to manage liquidity positions
-- The Skill reads **OKX Onchain OS / Market MCP** market data and combines it with liquidity pool state
+- The Skill reads **X Layer Onchain OS / Market MCP** market data and combines it with liquidity pool state
 - AI agents determine whether liquidity ranges need adjustment and produce structured decisions
 - The Manager contract executes rebalances, or returns delegated execution payloads for self-custody
 
@@ -22,7 +22,7 @@ The goal of the MVP is to deliver a **working, explainable, demo-ready** DEX tha
 
 1. Lumora functions as a concentrated liquidity DEX where users can provide liquidity
 2. AI agents can manage liquidity positions through the installed Skill
-3. The system generates intelligent decisions from OKX market data and executes rebalances through smart contracts
+3. The system generates intelligent decisions from X Layer Onchain OS market data and executes rebalances through smart contracts
 
 This will become the foundation for a more complete AI-native DEX ecosystem.
 
@@ -53,7 +53,7 @@ Lumora addresses this challenge at the protocol level:
 Lumora is not mainly about "AI predicting price." It is about building a complete DEX protocol that combines:
 
 - concentrated liquidity pools
-- OKX Onchain OS market data integration
+- X Layer Onchain OS market data integration
 - AI agent decision-making
 - automated rebalance execution
 - explainable and transparent operations
@@ -66,13 +66,13 @@ The long-term vision of Lumora is to become the **first truly AI-native DEX prot
 
 At the MVP stage, we focus on one clear value proposition:
 
-> A DEX where liquidity providers can delegate position management to AI agents that use OKX market intelligence to optimize their positions automatically.
+> A DEX where liquidity providers can delegate position management to AI agents that use X Layer Onchain OS market intelligence to optimize their positions automatically.
 
 From a product perspective, Lumora provides:
 
 - A concentrated liquidity DEX with competitive trading fees
 - Built-in AI agent integration for LP management
-- OKX Onchain OS market data for intelligent decision-making
+- X Layer Onchain OS market data for intelligent decision-making
 - Bring-your-own-agent architecture for flexibility
 - Explainable rebalance decisions
 
@@ -96,7 +96,7 @@ The MVP includes:
 - a **Vault contract** for LP deposits and share accounting
 - a **Manager contract** for concentrated liquidity position operations and rebalancing
 - a public **`lumora` Skill** for AI agent integration
-- internal orchestration between **OKX Onchain OS / Market MCP** and local execution tools
+- internal orchestration between **X Layer Onchain OS / Market MCP** and local execution tools
 - an **API layer** for external agents and future frontends
 - basic execution history, decision history, and multi-vault support
 
@@ -136,7 +136,7 @@ The purpose of the MVP is to **prove that an AI-native DEX works**.
 Lumora consists of four core modules:
 
 1. **DEX Protocol Layer** (Vault + Manager contracts)
-2. **OKX Market Intelligence** (OKX Onchain OS integration)
+2. **X Layer Market Intelligence** (X Layer Onchain OS integration)
 3. **AI Agent Skill** (public agent interface)
 4. **Decision Engine** (testable rule-based decision core)
 
@@ -171,9 +171,9 @@ It is mainly responsible for:
 
 The Manager is the execution engine of the DEX.
 
-### 7.3 OKX Onchain OS Market Intelligence
+### 7.3 X Layer Onchain OS Market Intelligence
 
-This capability reads market data from **OKX Onchain OS / Market MCP** and formats it for AI agent use.
+This capability reads market data from **X Layer Onchain OS / Market MCP** and formats it for AI agent use.
 
 It is mainly responsible for:
 
@@ -193,14 +193,14 @@ The public interface is one unified Skill: `lumora`.
 
 It is mainly responsible for:
 
-- reading market snapshots from OKX Onchain OS
+- reading market snapshots from X Layer Onchain OS
 - reading current LP position state
 - calling the testable rule module to determine whether the current range is still appropriate
 - determining whether a rebalance is justified
 - producing HOLD or REBALANCE decisions
 - returning human-readable reasons
 
-The goal of this Skill is not magical prediction. Its job is to orchestrate external agents, OKX market data, local tools, and the rule-based decision core into a **structured, explainable, executable** capability.
+The goal of this Skill is not magical prediction. Its job is to orchestrate external agents, X Layer Onchain OS market data, local tools, and the rule-based decision core into a **structured, explainable, executable** capability.
 
 ---
 
@@ -218,7 +218,7 @@ The user's own agent installs the `lumora` Skill and passes `target` plus the de
 
 ### Step 3: The System Reads Market Data
 
-The Skill internally calls OKX Onchain OS / Market MCP to fetch the latest price and recent price changes.
+The Skill internally calls X Layer Onchain OS / Market MCP to fetch the latest price and recent price changes.
 
 ### Step 4: The Agent Evaluates the Current Position
 
@@ -376,13 +376,13 @@ This gives the DEX a clear layering model:
 - Manager contract (position management)
 
 #### Backend Service Components
-- OKX market data reader
+- X Layer Onchain OS market data reader
 - Liquidity position state reader
 - AI decision module
 - execution module
 
 #### Agent Skills / Tooling
-- OKX Onchain OS / Market MCP Skills
+- X Layer Onchain OS / Market MCP Skills
 - `lumora` unified skill
 - local execution tools
 
@@ -393,7 +393,7 @@ This gives the DEX a clear layering model:
 
 1. the user's own agent or an API request triggers the system
 2. `lumora` resolves the vault target from `target.profileId`, `target.deploymentsFile`, or `target.addresses`
-3. the Skill reads OKX market data and liquidity position state
+3. the Skill reads X Layer Onchain OS market data and liquidity position state
 4. the Skill calls the rule module for decision-making
 5. if execution is needed, it either calls the Manager directly or returns delegated transaction data
 6. the system writes namespaced history for that target and returns the result
@@ -405,7 +405,7 @@ This gives the DEX a clear layering model:
 ### Required
 - Vault deposit / withdrawal
 - Manager rebalance execution
-- OKX Onchain OS / Market MCP price reading
+- X Layer Onchain OS / Market MCP price reading
 - current position state reading
 - AI agent decision output
 - rebalance execution or delegated execution payload generation
@@ -462,7 +462,7 @@ Lumora aims to represent:
 Lumora is very demo-friendly because the flow is immediately understandable:
 
 - market price changes
-- the AI agent reads the price from OKX Onchain OS
+- the AI agent reads the price from X Layer Onchain OS
 - the agent makes a decision
 - the Manager rebalances the liquidity position
 - the API returns the result
@@ -545,7 +545,7 @@ If the MVP can do the following, it is already a successful DEX prototype:
 ### Functional Success
 - users can deposit into Lumora liquidity vaults
 - the current LP position can be read
-- market prices can be retrieved from OKX Onchain OS
+- market prices can be retrieved from X Layer Onchain OS
 - AI agents can output HOLD / REBALANCE decisions
 - the Manager can execute a rebalance based on that decision
 - the API can return state, results, and reasons
@@ -562,7 +562,7 @@ If the MVP can do the following, it is already a successful DEX prototype:
 
 ### Phase 1: MVP
 - Vault + Manager (DEX core)
-- OKX Onchain OS market data reading
+- X Layer Onchain OS market data reading
 - `lumora` Skill
 - API output
 - manual, controlled, or delegated rebalance execution
@@ -593,12 +593,12 @@ If the MVP can do the following, it is already a successful DEX prototype:
 
 ## 19. Conclusion
 
-Lumora is an **AI-native concentrated liquidity DEX** built on **OKX Onchain OS**.
+Lumora is an **AI-native concentrated liquidity DEX** built on **X Layer Onchain OS**.
 
 Its value is not a vague claim that "AI makes money." Its value is:
 
 - providing a concentrated liquidity DEX
-- integrating OKX Onchain OS for reliable market data
+- integrating X Layer Onchain OS for reliable market data
 - enabling AI agents to manage liquidity positions
 - outputting explainable rebalance decisions
 - executing through smart contracts or generating delegated transactions
@@ -614,7 +614,7 @@ If that loop works, Lumora becomes the foundation for the next generation of int
 
 ## Appendix A: One-Sentence Version
 
-Lumora is a concentrated liquidity DEX where AI agents use OKX Onchain OS market data to automatically optimize LP positions.
+Lumora is a concentrated liquidity DEX where AI agents use X Layer Onchain OS market data to automatically optimize LP positions.
 
 ---
 
@@ -622,7 +622,7 @@ Lumora is a concentrated liquidity DEX where AI agents use OKX Onchain OS market
 
 1. the user provides liquidity to Lumora DEX
 2. the user's AI agent installs the `lumora` Skill
-3. the Skill reads prices from OKX Onchain OS / Market MCP
+3. the Skill reads prices from X Layer Onchain OS / Market MCP
 4. the Skill combines liquidity position state and the rule module to decide whether the current range is still appropriate
 5. the Skill outputs HOLD or REBALANCE
 6. the Manager contract executes the rebalance, or the system returns a delegated execution payload

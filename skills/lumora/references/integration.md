@@ -16,7 +16,7 @@ Use this skill when an external tool-using agent needs to manage a user's own va
 
 The agent does not need to know:
 
-- how OKX market data is fetched
+- how X Layer Onchain OS market data is fetched
 - how vault state is read
 - how rebalances are encoded
 - how history is namespaced

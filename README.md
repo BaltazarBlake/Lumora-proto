@@ -1,10 +1,10 @@
 # Lumora
 
-> Next-Generation DEX with AI-Powered Liquidity Management, powered by OKX Onchain OS
+> Next-Generation DEX with AI-Powered Liquidity Management, powered by X Layer Onchain OS
 
 ## Overview
 
-Lumora is a concentrated liquidity DEX protocol that integrates AI-driven liquidity management at its core. By leveraging **OKX Onchain OS Market Data**, Lumora enables autonomous agents to optimize liquidity positions in real-time, bringing intelligent automation directly into the DEX layer.
+Lumora is a concentrated liquidity DEX protocol that integrates AI-driven liquidity management at its core. By leveraging **X Layer Onchain OS Market Data**, Lumora enables autonomous agents to optimize liquidity positions in real-time, bringing intelligent automation directly into the DEX layer.
 
 ### The Problem
 
@@ -19,16 +19,16 @@ Traditional concentrated liquidity DEXs offer higher capital efficiency but crea
 Lumora is a **DEX protocol with native AI liquidity management**, combining:
 
 - **Concentrated Liquidity DEX**: Efficient capital deployment with customizable price ranges
-- **OKX Onchain OS Integration**: Real-time market intelligence for informed decision-making
+- **X Layer Onchain OS Integration**: Real-time market intelligence for informed decision-making
 - **AI Agent Layer**: Autonomous agents that optimize LP positions based on market conditions
 - **Flexible Execution**: Multiple execution modes for security and control
 - **Agent Ecosystem**: External agents can integrate via the Lumora skill
 
 ## Key Features
 
-### 🔗 OKX Onchain OS Integration
+### 🔗 X Layer Onchain OS Integration
 
-Lumora leverages **OKX Onchain OS** as its market intelligence foundation:
+Lumora leverages **X Layer Onchain OS** as its market intelligence foundation:
 
 - Real-time index prices and historical data
 - EMA (Exponential Moving Average) calculations
@@ -67,8 +67,8 @@ The `lumora` skill provides a unified interface for AI agents to manage liquidit
         ┌───────────────────┼───────────────────┐
         ▼                   ▼                   ▼
 ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
-│ OKX Onchain  │   │ Liquidity    │   │  Rebalance   │
-│  OS Market   │   │ Pool State   │   │   Executor   │
+│ X Layer      │   │ Liquidity    │   │  Rebalance   │
+│ Onchain OS   │   │ Pool State   │   │   Executor   │
 └──────────────┘   └──────────────┘   └──────────────┘
         │                   │                   │
         └───────────────────┼───────────────────┘
@@ -114,7 +114,7 @@ Copy `.env.example` to `.env.local` and configure:
 XLAYER_MAINNET_RPC_URL=https://rpc.xlayer.tech
 WALLET_PRIVATE_KEY=<your-private-key>
 
-# OKX Onchain OS
+# X Layer Onchain OS
 OKX_API_KEY=<your-okx-api-key>
 OKX_MARKET_MCP_URL=<okx-market-mcp-endpoint>
 ```
@@ -144,7 +144,7 @@ npm run api:dev
 ### Core Operations
 
 - `GET /health` - Health check
-- `GET /api/market/snapshot` - Get current market data from OKX Onchain OS
+- `GET /api/market/snapshot` - Get current market data from X Layer Onchain OS
 - `GET /api/vault/state` - Read vault and liquidity position state
 - `GET /api/agent/decision` - Get AI rebalance decision
 - `POST /api/rebalance/execute` - Execute rebalance operation
@@ -155,7 +155,7 @@ npm run api:dev
 - `POST /api/skill/lumora` - Unified agent skill interface
 
 **Supported Operations:**
-- `market_snapshot` - Fetch OKX market data
+- `market_snapshot` - Fetch X Layer Onchain OS market data
 - `decision` - Generate rebalance decision
 - `preview_rebalance` - Simulate rebalance
 - `execute_rebalance` - Execute rebalance
@@ -166,7 +166,7 @@ npm run api:dev
 
 - Provide liquidity to Lumora DEX
 - Let AI agents optimize your positions automatically
-- Benefit from OKX Onchain OS market intelligence
+- Benefit from X Layer Onchain OS market intelligence
 - Maintain control with flexible execution modes
 
 ### For AI Agents
@@ -193,9 +193,9 @@ External agents can integrate with Lumora to manage liquidity:
 - **request-signer**: Agent provides signing key per request
 - **delegated**: Return unsigned transaction for external signing (self-custody)
 
-## Why OKX Onchain OS?
+## Why X Layer Onchain OS?
 
-Lumora integrates **OKX Onchain OS** as its market data foundation because:
+Lumora integrates **X Layer Onchain OS** as its market data foundation because:
 
 1. **Reliable Data**: High-quality, real-time market data from a trusted exchange
 2. **Rich Metrics**: Beyond price - includes volatility, trends, and technical indicators
@@ -213,7 +213,7 @@ This integration enables Lumora's AI agents to make informed decisions based on 
 
 ### Innovation
 
-- **First AI-native DEX protocol** built on OKX Onchain OS
+- **First AI-native DEX protocol** built on X Layer Onchain OS
 - **Concentrated liquidity** with built-in intelligent management
 - **Agent-first design** - external agents can manage user liquidity
 - **Explainable AI** - every decision includes human-readable reasoning
@@ -221,7 +221,7 @@ This integration enables Lumora's AI agents to make informed decisions based on 
 ### Technical Excellence
 
 - Production-ready DEX smart contracts (Vault + Manager)
-- Comprehensive SDK with OKX Onchain OS integration
+- Comprehensive SDK with X Layer Onchain OS integration
 - RESTful API + unified skill endpoint
 - Multi-vault management with isolated profiles
 
@@ -230,8 +230,8 @@ This integration enables Lumora's AI agents to make informed decisions based on 
 - Reduces LP management complexity for concentrated liquidity
 - Improves capital efficiency through AI optimization
 - Enables AI-powered DeFi automation at the protocol level
-- Demonstrates practical OKX Onchain OS integration in DEX design
+- Demonstrates practical X Layer Onchain OS integration in DEX design
 
 ---
 
-**Built for OKX Hackathon** | Powered by OKX Onchain OS | Next-Gen AI-Native DEX
+**Built for OKX Hackathon** | Powered by X Layer Onchain OS | Next-Gen AI-Native DEX

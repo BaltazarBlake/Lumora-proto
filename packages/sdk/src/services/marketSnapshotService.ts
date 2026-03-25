@@ -30,7 +30,7 @@ export class MarketSnapshotService {
       throw new Error("Current OKX timestamp is not a number.");
     }
     if (Date.now() - currentTimestamp > this.env.MARKET_STALE_TIME_MS) {
-      throw new Error(`OKX market data is stale. latest=${currentTimestamp}`);
+      throw new Error(`X Layer Onchain OS market data is stale. latest=${currentTimestamp}`);
     }
 
     const history = normalizeHistoryPoints(historical.prices, currentPoint);

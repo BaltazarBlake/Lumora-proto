@@ -1,0 +1,26 @@
+{
+  "name": "@ai-alm/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf artifacts cache dist",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.ts --network xLayerMainnet",
+    "seed:pool": "hardhat run scripts/seedPool.ts --network xLayerMainnet",
+    "seed:vault": "hardhat run scripts/seedVault.ts --network xLayerMainnet"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6",
+    "@uniswap/sdk-core": "^7.9.0",
+    "@uniswap/v3-core": "^1.0.1",
+    "@uniswap/v3-periphery": "^1.4.4",
+    "@uniswap/v3-sdk": "^3.26.0",
+    "ethers": "^6.15.0",
+    "hardhat": "^2.27.0",
+    "jsbi": "^4.3.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0"
+  }
+}

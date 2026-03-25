@@ -1,0 +1,30 @@
+{
+  "name": "ai-alm-hackathon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-driven Uniswap V3 ALM MVP for OKX X Layer mainnet",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @ai-alm/sdk && npm run build -w @ai-alm/contracts && npm run build -w @ai-alm/api",
+    "clean": "npm run clean --workspaces --if-present && rimraf node_modules",
+    "contracts:compile": "npm run compile -w @ai-alm/contracts",
+    "api:dev": "npm run dev -w @ai-alm/api",
+    "api:build": "npm run build -w @ai-alm/api",
+    "deploy": "npm run deploy -w @ai-alm/contracts",
+    "seed:pool": "npm run seed:pool -w @ai-alm/contracts",
+    "seed:vault": "npm run seed:vault -w @ai-alm/contracts"
+  },
+  "engines": {
+    "node": ">=22.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "dotenv": "^16.6.1",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumora V3 Demo</title>
+    <meta
+      name="description"
+      content="Lumora-inspired AI ALM demo for xLayer mainnet with real contract addresses and a recording-ready market execution flow."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand-mark">
+          <span class="brand-glyph"></span>
+          <span class="brand-text">LUMORA V3</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#hero">Home</a>
+          <a href="#workspace">Flow</a>
+          <a href="#api-console">API</a>
+          <a href="#addresses">Addresses</a>
+        </nav>
+        <div class="topbar-actions">
+          <span class="network-chip">xLayer Mainnet</span>
+          <button id="wallet-toggle" class="ghost-button">Connect Wallet</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="hero" class="hero-panel glass-panel">
+          <div class="hero-copy">
+            <div class="eyebrow-row">
+              <span class="eyebrow">AI-Managed Concentrated Liquidity</span>
+              <span class="status-pill warning">Real addresses + recording-ready flow</span>
+            </div>
+            <h1>READ THE MARKET, SHIFT THE RANGE.</h1>
+            <p class="hero-subtitle">
+              Lumora-styled demo flow for Vault binding, Skill activation, market reading, decisioning,
+              preview, delegated payload, and history timeline.
+            </p>
+            <div class="hero-actions">
+              <button id="start-demo" class="primary-button">Start Demo</button>
+              <button id="jump-workspace" class="secondary-button">Open Flow Board</button>
+            </div>
+            <div class="hero-metrics">
+              <div>
+                <span class="metric-label">Profile</span>
+                <strong>xlayer-mainnet-demo</strong>
+              </div>
+              <div>
+                <span class="metric-label">Primary Pair</span>
+                <strong>WETH / STK</strong>
+              </div>
+              <div>
+                <span class="metric-label">Secondary Pair</span>
+                <strong>TOKEN / LUSDT</strong>
+              </div>
+            </div>
+          </div>
+          <div class="hero-stage">
+            <div class="prism-stack">
+              <div class="prism top"></div>
+              <div class="prism middle"></div>
+              <div class="prism base"></div>
+            </div>
+            <div class="hero-caption-row">
+              <div class="caption-card">
+                <span class="caption-index">01</span>
+                <strong>Vault Ownership</strong>
+                <p>Bind a user vault and expose target-aware APIs.</p>
+              </div>
+              <div class="caption-card">
+                <span class="caption-index">02</span>
+                <strong>Agent Skill</strong>
+                <p>Turn whitepaper steps into a replayable flow board.</p>
+              </div>
+              <div class="caption-card">
+                <span class="caption-index">03</span>
+                <strong>Delegated Mode</strong>
+                <p>Surface both direct execute and delegated payload paths.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="workspace" class="workspace-layout">
+          <aside class="control-rail glass-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="panel-kicker">Recording Path</span>
+                <h2>Demo Orchestration</h2>
+              </div>
+              <button id="reset-demo" class="mini-button">Reset</button>
+            </div>
+            <p class="panel-description">
+              Click the steps in order. Each action reveals one part of the whitepaper loop and updates the API console.
+            </p>
+            <div id="step-list" class="step-list"></div>
+          </aside>
+
+          <section class="board-grid">
+            <article id="vault-card" class="glass-panel board-card feature-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Step 1</span>
+                  <h3>User Vault Binding</h3>
+                </div>
+                <span id="vault-status" class="status-pill muted">Pending</span>
+              </div>
+              <p class="support-copy">
+                Real xLayer addresses are wired into this demo. The flow binds a profile, resolves the target manifest, and exposes the vault to the agent runtime.
+              </p>
+              <div class="info-grid">
+                <div>
+                  <span class="info-label">Profile ID</span>
+                  <strong id="profile-id">Waiting for bind</strong>
+                </div>
+                <div>
+                  <span class="info-label">Owner Wallet</span>
+                  <strong id="profile-owner">0x9bDC...499a</strong>
+                </div>
+                <div>
+                  <span class="info-label">User Vault</span>
+                  <code id="user-vault-address">-</code>
+                </div>
+                <div>
+                  <span class="info-label">User Manager</span>
+                  <code id="user-manager-address">-</code>
+                </div>
+                <div>
+                  <span class="info-label">Pool</span>
+                  <code id="pool-address">-</code>
+                </div>
+                <div>
+                  <span class="info-label">Position State</span>
+                  <strong id="position-state">Awaiting analysis</strong>
+                </div>
+              </div>
+            </article>
+
+            <article id="skill-card" class="glass-panel board-card feature-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Step 2</span>
+                  <h3>Skill Install</h3>
+                </div>
+                <span id="skill-status" class="status-pill muted">Inactive</span>
+              </div>
+              <p class="support-copy">
+                The page demonstrates the install of <code>univ3-vault-agent</code> and the target-aware invocation model described in the whitepaper.
+              </p>
+              <div id="skill-tags" class="tag-row"></div>
+            </article>
+
+            <article id="market-card" class="glass-panel board-card wide-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Step 3</span>
+                  <h3>Market Snapshot</h3>
+                </div>
+                <span id="market-status" class="status-pill muted">Standby</span>
+              </div>
+              <div class="market-layout">
+                <div class="chart-shell">
+                  <svg id="market-chart" viewBox="0 0 320 160" preserveAspectRatio="none"></svg>
+                </div>
+                <div class="market-metrics" id="market-metrics"></div>
+              </div>
+            </article>
+
+            <article id="decision-card" class="glass-panel board-card feature-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Steps 4-5</span>
+                  <h3>Agent Analysis</h3>
+                </div>
+                <span id="decision-status" class="status-pill muted">HOLD</span>
+              </div>
+              <div class="decision-main">
+                <div>
+                  <span class="info-label">Action</span>
+                  <strong id="decision-action">Waiting</strong>
+                </div>
+                <div>
+                  <span class="info-label">Target Range</span>
+                  <strong id="decision-range">-</strong>
+                </div>
+                <div>
+                  <span class="info-label">Confidence</span>
+                  <strong id="decision-confidence">-</strong>
+                </div>
+              </div>
+              <ul id="decision-reasons" class="reason-list"></ul>
+            </article>
+
+            <article id="execution-card" class="glass-panel board-card feature-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Step 6</span>
+                  <h3>Execution Paths</h3>
+                </div>
+                <span id="execution-status" class="status-pill muted">Preview first</span>
+              </div>
+              <div class="info-grid compact">
+                <div>
+                  <span class="info-label">Gas Estimate</span>
+                  <strong id="preview-gas">-</strong>
+                </div>
+                <div>
+                  <span class="info-label">Gas USD</span>
+                  <strong id="preview-gas-usd">-</strong>
+                </div>
+                <div>
+                  <span class="info-label">Slippage</span>
+                  <strong id="preview-slippage">-</strong>
+                </div>
+                <div>
+                  <span class="info-label">Mode</span>
+                  <strong id="execution-mode">-</strong>
+                </div>
+              </div>
+              <pre id="payload-viewer" class="payload-viewer">Delegated payload will appear here.</pre>
+            </article>
+
+            <article id="history-card" class="glass-panel board-card wide-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Step 7</span>
+                  <h3>API + History Playback</h3>
+                </div>
+                <span id="history-status" class="status-pill muted">Hidden</span>
+              </div>
+              <div id="history-timeline" class="timeline"></div>
+            </article>
+
+            <article id="api-console" class="glass-panel board-card wide-card terminal-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Console</span>
+                  <h3>API Response Surface</h3>
+                </div>
+                <div id="api-tabs" class="api-tabs"></div>
+              </div>
+              <div class="terminal-shell">
+                <div class="terminal-bar">
+                  <span id="api-endpoint">GET /</span>
+                  <span id="api-mode" class="terminal-mode">demo</span>
+                </div>
+                <pre id="api-response" class="terminal-output"></pre>
+              </div>
+            </article>
+
+            <article id="addresses" class="glass-panel board-card wide-card">
+              <div class="card-header">
+                <div>
+                  <span class="panel-kicker">Deployment Inventory</span>
+                  <h3>Real xLayer Addresses</h3>
+                </div>
+                <span class="status-pill success">Live deployment references</span>
+              </div>
+              <div id="address-list" class="address-list"></div>
+            </article>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <aside id="account-drawer" class="account-drawer">
+      <div class="drawer-header">
+        <div>
+          <span class="panel-kicker">Account</span>
+          <h3>Recorder Wallet</h3>
+        </div>
+        <button id="close-drawer" class="drawer-close">Close</button>
+      </div>
+      <div class="wallet-card">
+        <div class="wallet-avatar"></div>
+        <div>
+          <strong>0x9bDC...499a</strong>
+          <p>xLayer mainnet deployer and demo owner</p>
+        </div>
+      </div>
+      <div class="drawer-balances">
+        <div>
+          <span class="info-label">Native</span>
+          <strong>0.059 ETH</strong>
+        </div>
+        <div>
+          <span class="info-label">TOKEN</span>
+          <strong>1,000,000</strong>
+        </div>
+        <div>
+          <span class="info-label">LUSDT</span>
+          <strong>1,000,000</strong>
+        </div>
+      </div>
+      <div class="drawer-history">
+        <span class="panel-kicker">Highlights</span>
+        <div id="drawer-events" class="drawer-event-list"></div>
+      </div>
+    </aside>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
